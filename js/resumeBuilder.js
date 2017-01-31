@@ -2,13 +2,14 @@
 var data = '%data%';
 var url = '%url%';
 
-// inicio do Work   OK
+// inicio do Work
 
 var work = {
   "jobs": [
     {
       "employer": "Apois à Processamento",
-      "title": "Politec LTDA.",
+      "title": "Politec LTDA / Indra Company.",
+      "url": "http://www.indracompany.com/",
       "location": "Maceió-AL",
       "datesWorked": "2006",
       "description": "Prestador de serviço à Secretaria de Estado da Fazenda de Alagoas"
@@ -16,9 +17,18 @@ var work = {
     {
       "employer": "Técnico de Infra-estrutura",
       "title": "CPM Braxis",
+      "url": "http://www.capgemini.com",
       "location": "Maceió-AL",
       "datesWorked": "2010",
       "description": "Prestador de serviço à Secretaria de Estado da Fazenda de Alagoas"
+    },
+    {
+      "employer": "Técnico de Infra-estrutura PL",
+      "title": "Capgemini",
+      "url": "http://www.capgemini.com",
+      "location": "Maceió-AL",
+      "datesWorked": "2011",
+      "description": "Prestador de serviço ao Detran do estado de Alagoas"
     }
   ]
 };
@@ -28,8 +38,8 @@ work.display = function(){    // === function displayWork (){}
 
       $("#workExperience").append(HTMLworkStart);
 
-      var formattedEmployer = HTMLworkEmployer.replace(data, work.jobs[job].employer);
-      var formattedTitle = HTMLworkTitle.replace(data, work.jobs[job].title);
+      var formattedEmployer = HTMLworkEmployer.replace(data, work.jobs[job].employer).replace(url, work.jobs[job].url);
+      var formattedTitle = HTMLworkTitle.replace(data, work.jobs[job].title).replace(url, work.jobs[job].url);
       var formattedEmployerTitle = formattedEmployer + formattedTitle;
       $(".work-entry:last").append(formattedEmployerTitle);
       var formattedWorkLocation = HTMLworkLocation.replace(data, work.jobs[job].location);
@@ -46,26 +56,26 @@ work.display();   // notação de ponto (.).
 
 // fim do work
 
-// inicio do projects   OK
+// inicio do projects
 
 var projects = {
   "myProjects": [
     {
-      "title": "Secretaria da Fazenda",
-      "dates": "2006",
-      "description": "Projeto iniciado em 2006 pela Politec com " +
-      "a finalidade de oferecer serviços de apoio ao usuário",
+      "title": "Home Town",
+      "github": "https://github.com/irvingmarcel/home-town",
+      "description": "Projeto de conclusão do curso de HTML e CSS " +
+      "oferecido pela Udacity no Nanodegree Desenvolvedor Web Front-End.",
       "images": [
-        "images/sefaz.jpg"
+        "images/proj01_1x.jpg"
       ]
     },
     {
-      "title": "Detran-AL",
-      "dates": "2010",
-      "description": "Projeto iniciado em 2010 pela CPM Braxis com " +
-      "a finalidade de oferecer serviços de Infra-estrutura",
+      "title": "Projeto Portfolio",
+      "github": "https://github.com/irvingmarcel/projeto-portfolio",
+      "description": "Projeto de conclusão do curso de Imagens Responsivas " +
+      "oferecido pela Udacity no Nanodegree Desenvolvedor Web Front-End.",
       "images": [
-        "images/detran.png"
+        "images/proj02_1x.jpg"
       ]
     }
   ]
@@ -76,11 +86,11 @@ projects.display = function() {
 
       $("#projects").append(HTMLprojectStart);
 
-      var formattedTitle = HTMLprojectTitle.replace(data, projects.myProjects[project].title);
+      var formattedTitle = HTMLprojectTitle.replace(data, projects.myProjects[project].title).replace(url, projects.myProjects[project].github);
       $(".project-entry:last").append(formattedTitle);
 
-      var formattedDates = HTMLprojectDates.replace(data, projects.myProjects[project].dates);
-      $(".project-entry:last").append(formattedDates);
+      var formattedprojectURL = HTMLprojectURL.replace(data, projects.myProjects[project].github).replace(url, projects.myProjects[project].github);
+      $(".project-entry:last").append(formattedprojectURL);
 
       var formattedDescription = HTMLprojectDescription.replace(data, projects.myProjects[project].description);
       $(".project-entry:last").append(formattedDescription);
@@ -103,27 +113,22 @@ projects.display();
 
 // fim do projects
 
-// inicio do bio    OK
+// inicio do bio
 
 var bio = {
   "name": "Irving Marcel",
-  "role": "Desenvolvedor Web",
   "contacts": {
-    "mobile": "82-988259050",
+    "mobile": "55(082)988259050",
     "email": "irvingmarcel@gmail.com",
     "github": "irvingmarcel",
     "twitter": "@irvingmarcel",
     "location": "Maceió-AL - Brasil"
   },
-  "welcomeMessage": "Bem-vindos ao meu curriculo!",
-  "skills": ["Extrovertido", "Determinado", "Comunicativo", "Responsável"],
-  "biopic": "images/fry.jpg"    //Modificar a foto
+  "skills": ["Ágil", "Comunicativo", "Determinado", "Extrovertido", "Responsável"]
 };
 bio.display = function(){
   var formattedName = HTMLheaderName.replace(data, bio.name);
   $("#header").prepend(formattedName);
-  var formattedRole = HTMLheaderRole.replace(data, bio.role);
-  $("#header").append(formattedRole);
 
   var formattedMobile = HTMLmobile.replace(data, bio.contacts.mobile);
   $("#topContacts").append(formattedMobile);
@@ -136,24 +141,15 @@ bio.display = function(){
   var formatterdLocation = HTMLlocation.replace(data, bio.contacts.location);
   $("#topContacts").append(formatterdLocation);
 
-  var formattedWelcome = HTMLwelcomeMsg.replace(data, bio.welcomeMessage);
-  $("#header").append(formattedWelcome);
-  var formattedPic = HTMLbioPic.replace(data, bio.biopic);
-  $("#header").append(formattedPic);
-
-  if(bio.skills.length > 0){
-    $("#header").append(HTMLskillsStart);
-
-    var formattedSkill = HTMLskills.replace(data, bio.skills[0]);
-    $("#skills").append(formattedSkill);
-    var formattedSkill = HTMLskills.replace(data, bio.skills[1]);
-    $("#skills").append(formattedSkill);
-    var formattedSkill = HTMLskills.replace(data, bio.skills[2]);
-    $("#skills").append(formattedSkill);
-    var formattedSkill = HTMLskills.replace(data, bio.skills[3]);
-    $("#skills").append(formattedSkill);
+  $("#header").append(HTMLskillsStart);
+  for (skill in bio.skills){
+    if (bio.skills.hasOwnProperty(skill)){
+      if(bio.skills[skill].length > 0){
+        var formattedSkill = HTMLskills.replace(data, bio.skills[skill]);
+        $(".center-content:last").append(formattedSkill);
+      }
+    }
   }
-
 };
 bio.display();
 
@@ -172,20 +168,28 @@ var education = {
       "url": "http://www.conhecimentodigital.com.br",
       "onlineCourses": [
         {
-          "title": "Introdução à Informática",
-          "school": "Sebrae Cursos",
-          "date": "2004",
-          "url": "http://www.sebrae.com.br"
+          "title": "Nanodegree Desenvolvedor Web Front-End",
+          "school": "Udacity",
+          "date": "2016",
+          "url": "http://www.udacity.com"
         }
       ]
+    },
+    {
+      "name": "FAL - Faculdade de Alagoas",
+      "location": "Maceió-AL",
+      "degree": "Superior",
+      "majors": ["Sistemas de Informação"],
+      "dates": "2008",
+      "url": "http://www.estacio.br"
     }
   ]
 };
 education.display = function (){
   for (var school in education.schools){
     if (education.schools.hasOwnProperty(school)){
-
       $("#education").append(HTMLschoolStart);
+
 
       var formattedSchoolName = HTMLschoolName.replace(url, education.schools[school].url).replace(data, education.schools[school].name);
       $(".education-entry:last").append(formattedSchoolName);
@@ -220,39 +224,9 @@ education.display = function (){
           $(".education-entry:last").append(formattedonlineURL);
         }
       }
-
     }
   }
 };
 education.display();
 
 //fim do Education
-
-
-//contador de clicks
-
-// $(document).click(function(loc){
-//   var x = loc.pageX;
-//   var y = loc.pageY;
-//
-//   logClicks(x,y);
-// });
-
-
-// nacionalizar nome
-
-// function inName(name) {
-// 	name = name.trim().split(" ");
-// 	console.log(name);
-// 	name[1] = name[1].toUpperCase();
-// 	name[0] = name[0].slice(0,1).toUpperCase() +
-// 		name[0].slice(1).toLowerCase();
-//
-// 	return name[0] +" "+ name[1];
-// }
-// $("#main").append(internationalizeButton);
-
-
-// motrar mapa Google
-
-$("#mapDiv").append(googleMap);

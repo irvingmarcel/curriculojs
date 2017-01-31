@@ -35,7 +35,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #0098da;         /*alterar pra azul*/
+  color: #0098da;
   line-height: 48px;
   display: inline;
 }
@@ -125,7 +125,7 @@ a {
   background-color: #0098da;
 }
 
-.orange-text {
+.blue-text {
   color: #0098da;
 }
 

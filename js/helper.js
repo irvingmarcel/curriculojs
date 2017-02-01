@@ -15,13 +15,13 @@ replace the %data% placeholder text you see in them.
 var HTMLheaderName = '<h1 id="name">%data%</h1><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="blue-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="blue-text">celular</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="blue-text">mobile</span><span class="white-text">%data%</span></li>';
 var HTMLemail = '<li class="flex-item"><span class="blue-text">email</span><span class="white-text">%data%</span></li>';
 var HTMLtwitter = '<li class="flex-item"><span class="blue-text">twitter</span><span class="white-text">%data%</span></li>';
 var HTMLgithub = '<li class="flex-item"><span class="blue-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="blue-text">localização</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="blue-text">localization</span><span class="white-text">%data%</span></li>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Minhas habilidades:</h3><ul id="skills" class="flex-column"></ul>';
+var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
@@ -44,7 +44,7 @@ var HTMLschoolDegree = ' - %data%</a>';
 var HTMLschoolDates = '<div class="date-text-school">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>%data%</em>';
-var HTMLschoolsURL = '<a href="%url%">%data%</a><br>';    //adicionado por mim. Funcionando OK :)
+var HTMLschoolsURL = '<a href="%url%">%data%</a>';    //adicionado por mim. Funcionando OK :)
 
 var HTMLonlineClasses = '<h3>Online Classes</h3>';
 var HTMLonlineTitle = '<p> - %data%</p>';

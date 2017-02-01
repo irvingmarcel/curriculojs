@@ -124,7 +124,7 @@ var bio = {
     "twitter": "@irvingmarcel",
     "location": "Maceió-AL - Brasil"
   },
-  "skills": ["HTML", "CSS", "JavaScript", "Java"],
+  "skills": ["HTML5", "CSS3", "JavaScript", "Java"],
   "interesses": ["Desenvolvimento Front-End"]
 };
 bio.display = function(){

@@ -124,7 +124,8 @@ var bio = {
     "twitter": "@irvingmarcel",
     "location": "Maceió-AL - Brasil"
   },
-  "skills": ["Ágil", "Comunicativo", "Determinado", "Extrovertido", "Responsável"]
+  "skills": ["HTML", "CSS", "JavaScript", "Java"],
+  "interesses": ["Desenvolvimento Front-End"]
 };
 bio.display = function(){
   var formattedName = HTMLheaderName.replace(data, bio.name);
@@ -150,6 +151,8 @@ bio.display = function(){
       }
     }
   }
+  var formattedInteresses = HTMLAboutMe.replace(data, bio.interesses);
+  $("#aboutMe").append(formattedInteresses);
 };
 bio.display();
 
@@ -224,6 +227,7 @@ education.display = function (){
           $(".education-entry:last").append(formattedonlineURL);
         }
       }
+
     }
   }
 };
